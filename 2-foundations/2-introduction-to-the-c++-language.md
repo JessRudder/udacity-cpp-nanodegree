@@ -328,14 +328,15 @@ v.push_back(4);
 
 # 24 - Code: Parse Lines from the File
 ```
-void ReadBoardFile(string path) {
-  ifstream myfile (path);
-  if (myfile) {
-    string line;
-    while (getline(myfile, line)) {
-      cout << line << "\n";
+vector<int> ParseLine(string line) {
+    istringstream sline(line);
+    int n;
+    char c;
+    vector<int> row;
+    while (sline >> n >> c && c == ',') {
+      row.push_back(n);
     }
-  }
+    return row;
 }
 ```
 
